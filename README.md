@@ -1,6 +1,6 @@
 # Eddy Murphy Mixer
 
-Eddy murphy's Best Movies SoudnBoard
+Eddy murphy's Best Movies SoundBoard
 
 ![palette](https://fanart.tv/fanart/movies/90/moviebanner/beverly-hills-cop-5328f95905ae7.jpg)
 
