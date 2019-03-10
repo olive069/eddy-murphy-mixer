@@ -6,13 +6,15 @@ import { SoundBoardComponent } from './sound-board/sound-board.component';
 import { SoundItemComponent } from './sound-board/sound-item/sound-item.component';
 import { EmmRoutingModule } from './emm-routing.module';
 import { SharedModule } from '@emm/shared/shared.module';
+import { MovieInfoComponent } from './movie-info/movie-info.component';
 
 @NgModule({
   declarations: [
     EmmComponent, 
     MovieListComponent, 
     SoundBoardComponent, 
-    SoundItemComponent,
+    SoundItemComponent, 
+    MovieInfoComponent,
   ],
   imports: [
     CommonModule,
