@@ -1,8 +1,17 @@
-Var : {{movie}}
-<mat-toolbar>
-  <mat-form-field>
-    <mat-select placeholder="Choose an option">
-      <mat-option *ngFor="let value of movies" value="option1">{{movies}}</mat-option>
+<!-- <mat-toolbar>
+  <mat-menu>
+    <mat-select placeholder="Choose your movie">
+      <button *ngFor="let value of movies" value="option1">{{value.year}} -
+        {{value.title}}</button>
     </mat-select>
-  </mat-form-field>
-</mat-toolbar>
+  </mat-menu>
+</mat-toolbar> -->
+
+ <mat-toolbar>
+
+<button mat-button [matMenuTriggerFor]="menu">Choose your movie</button>
+<mat-menu #menu="matMenu" (ngSubmit)= "onClickMovie()"#movielist>
+  <button mat-menu-item *ngFor="let value of movies" [value]="selectedMovie" (click)="onClickMovie()" >{{value.year}} -
+      {{value.title}}</button>
+</mat-menu>
+<mat-toolbar>

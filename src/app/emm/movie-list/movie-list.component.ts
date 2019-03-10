@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MovieService } from '../shared/movie.service';
 import { Movie } from '../shared/models/movie.model';
 
@@ -8,19 +8,29 @@ import { Movie } from '../shared/models/movie.model';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
+  @Output() onMovieSelected: EventEmitter<string>;
   private movies: Movie[];
-  private movie: String;
+  private selectedMovie: Number;
+
   constructor(private movieService: MovieService) {
-    this.movie = "uyiyiuyui";
+    this.onMovieSelected = new EventEmitter;
   };
-  getMovieList(): void {
-    this.movies = this.movieService.get().subscribe(
-      (data) => {
-        this.movies = data;
+
+  getMovieList(): Movie[] {
+    this.movieService.get().subscribe(
+      (movies: Movie[]) => {
+        this.movies = movies;
       }
-      );
+    );
+    return this.movies;
   };
   ngOnInit() {
+    this.movies = this.getMovieList();
+  }
+  onClickMovie(selectedMovie: Number) {
+    alert (selectedMovie);
+    // const selectedMovie = movielist.value;
+    // this.onMovieSelected.emit(selectedMovie);
   }
 
 }

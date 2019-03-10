@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emm.component.scss']
 })
 export class EmmComponent implements OnInit {
+   
+  public movie:String;
+  private onMovieSelected: Number;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }
