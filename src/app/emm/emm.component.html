@@ -1,5 +1,9 @@
-{{onMovieSelected}}
-
+<emm-header></emm-header>
+<emm-movie-list (onMovieSelected)="setId($event)"></emm-movie-list>
 <emm-sound-board></emm-sound-board>
-<emm-movie-info></emm-movie-info>
-<emm-movie-list></emm-movie-list>
+<emm-movie-info [id]="id"></emm-movie-info>
+<!-- [value] = "value" -->
+<!-- var dans le pere : ngOnChanges
+dans l'emitter : (value) = func ($event)
+func : 
+dans le receiver : @ Input  -->

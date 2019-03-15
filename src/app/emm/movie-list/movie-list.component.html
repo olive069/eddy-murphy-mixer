@@ -7,11 +7,11 @@
   </mat-menu>
 </mat-toolbar> -->
 
- <mat-toolbar>
-
-<button mat-button [matMenuTriggerFor]="menu">Choose your movie</button>
-<mat-menu #menu="matMenu" (ngSubmit)= "onClickMovie()"#movielist>
-  <button mat-menu-item *ngFor="let value of movies" [value]="selectedMovie" (click)="onClickMovie()" >{{value.year}} -
-      {{value.title}}</button>
-</mat-menu>
 <mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="menu">Choose your movie</button>
+  <mat-menu #menu="matMenu" (ngSubmit)="onClickMovie($value)" #movielist>
+    <button mat-menu-item *ngFor="let value of movies" [value]="selectedMovie" (click)="onClickMovie(value.id)">
+      {{value.year}} -
+      {{value.title}}</button>
+  </mat-menu>
+  <mat-toolbar>

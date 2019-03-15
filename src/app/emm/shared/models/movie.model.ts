@@ -1,10 +1,10 @@
 import { AudioTrack } from './audio-track.model';
 
 export class Movie {
-    id:Number;
-    title:String;
-    year:Number;
-    director:String;
-    poster:String;
+    id:number;
+    title:string;
+    year:number;
+    director:string;
+    poster:string;
     audiolist:AudioTrack[];
 }

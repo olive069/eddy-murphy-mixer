@@ -6,14 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emm.component.scss']
 })
 export class EmmComponent implements OnInit {
-   
-  public movie:String;
-  private onMovieSelected: Number;
 
-  constructor() { 
+  public movie: string;
+  private id: number;
+  constructor() {
   }
 
   ngOnInit() {
   }
-
+  setId(id: number) {
+    this.id = id;    
+  }
 }

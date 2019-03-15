@@ -178,7 +178,7 @@ export class MovieService {
     },
     {
       id: 2,
-      title: "Golden child - L'enfant sacré du Tibet",
+      title: "Golden child",
       year: 1986,
       director: "Michael Ritchie",
       poster: "2.jpg",
@@ -214,6 +214,10 @@ export class MovieService {
 
   get(): Observable<Movie[]> {
     return of(this.movies);
+  }
+
+  find(id: number): Observable<Movie> {
+    return of(this.movies.find((movie: Movie) => movie.id === id));
   }
 
 }

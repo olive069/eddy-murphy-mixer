@@ -8,29 +8,26 @@ import { Movie } from '../shared/models/movie.model';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
-  @Output() onMovieSelected: EventEmitter<string>;
+  @Output() onMovieSelected: EventEmitter<number>;
   private movies: Movie[];
-  private selectedMovie: Number;
+  private selectedMovie: string;
 
   constructor(private movieService: MovieService) {
     this.onMovieSelected = new EventEmitter;
   };
 
-  getMovieList(): Movie[] {
+  getMovieList(): void {
     this.movieService.get().subscribe(
       (movies: Movie[]) => {
         this.movies = movies;
       }
     );
-    return this.movies;
   };
   ngOnInit() {
-    this.movies = this.getMovieList();
+    this.getMovieList();
   }
-  onClickMovie(selectedMovie: Number) {
-    alert (selectedMovie);
-    // const selectedMovie = movielist.value;
-    // this.onMovieSelected.emit(selectedMovie);
+  onClickMovie(id: number) {
+    this.onMovieSelected.emit(id);
   }
 
 }

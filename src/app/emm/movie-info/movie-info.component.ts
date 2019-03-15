@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../shared/models/movie.model';
 import { MovieService } from '../shared/movie.service';
 
@@ -7,27 +7,19 @@ import { MovieService } from '../shared/movie.service';
   templateUrl: './movie-info.component.html',
   styleUrls: ['./movie-info.component.scss']
 })
-export class MovieInfoComponent implements OnInit {
-  private movies: Movie[];
-  private movie: Number;
+export class MovieInfoComponent {
+  private movie: Movie;
+
+  @Input() id: number;
   constructor(private movieService: MovieService) {
-
   };
 
-  getMovieList(): Movie[] {
-    this.movieService.get().subscribe(
-      (movies: Movie[]) => {
-        this.movies = movies;
-      }
-    );
-    return this.movies;
-  };
-  ngOnInit() {
-    this.movies = this.getMovieList();
-
-  };
   ngOnChanges() {
-
+    this.movieService.find(this.id).subscribe(
+      (movie: Movie) => this.movie = movie
+    );
   }
-
 }
+
+
+
